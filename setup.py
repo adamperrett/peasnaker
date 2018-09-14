@@ -37,5 +37,5 @@ setup(
     license="GNU GPLv3.0",
     packages=packages,
     package_data=package_data,
-    install_requires=[None]
+    install_requires=['scipy', 'numpy']
 )
