@@ -74,7 +74,7 @@ class SimplePopulation(object):
         self.solved_at  = None
         self.stats = defaultdict(list)
                 
-    def epoch(self, evaluator, generations, tracker=None, solution=None, reset=True, callback=None, SpiNNaker=False):
+    def epoch(self, evaluator, generations, solution=None, reset=True, callback=None, SpiNNaker=False):
         """ Runs an evolutionary epoch 
 
             :param evaluator:    Either a function or an object with a function
@@ -88,8 +88,8 @@ class SimplePopulation(object):
         for _ in xrange(generations):
             print "start of the generation"
             # tracker.print_diff()
-            if SpiNNaker == True:
-                self._evolve(evaluator, tracker, solution, SpiNNaker)
+            if SpiNNaker:
+                self._evolve(evaluator, solution, SpiNNaker)
             else:
                 self._evolve(evaluator, solution)
 
@@ -131,11 +131,11 @@ class SimplePopulation(object):
         
         return self.population
 
-    def _SpiNNaker_all(self, pop, evaluator, tracker):
+    def _SpiNNaker_all(self, pop, evaluator):
         print "spinn all"
         # tracker.print_diff()
         print "starting eval"
-        evaluator(pop, tracker)
+        evaluator(pop)
         print "finished spinn all"
         # tracker.print_diff()
         
