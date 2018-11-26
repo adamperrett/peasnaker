@@ -17,7 +17,7 @@ genotype = lambda: NEATGenotype(inputs=6,
                                 feedforward=False)
 
 # Create a population
-pop = NEATPopulation(genotype, popsize=20)
+pop = NEATPopulation(genotype, popsize=200)
     
 # Create a task
 dpnv = PoleBalanceTask(velocities=True, 

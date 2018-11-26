@@ -197,8 +197,11 @@ class SimplePopulation(object):
         """
         for key in pop[0].stats:
             self.stats[key+'_avg'].append(np.mean([ind.stats[key] for ind in pop]))
+            # print "avg ", self.stats[key+'_avg']
             self.stats[key+'_max'].append(np.max([ind.stats[key] for ind in pop]))
+            # print "max ", self.stats[key+'_max']
             self.stats[key+'_min'].append(np.min([ind.stats[key] for ind in pop]))
+            # print "min ", self.stats[key+'_min']
         self.stats['solved'].append( self.solved_at is not None )
         
     def _status_report(self):
